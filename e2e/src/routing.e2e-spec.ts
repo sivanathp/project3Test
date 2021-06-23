@@ -129,8 +129,78 @@ registerButton.click();
         
    });
 
+it('cannot register 3 contestants', function() {
+    page.navigateTo();
+    browser.get('/');
+    registrationLink.click();
 
+contestant0.sendKeys('Ajna');
+contestant1.sendKeys('Lewis');
+contestant2.sendKeys('Orsega');
 
+registerButton.click();
+    
+    expect(registerMessage.getText()).toEqual('Should be 2, 4, or 8 contestants');
+    
+        
+   });
+
+it('cannot register 5 contestants', function() {
+    page.navigateTo();
+    browser.get('/');
+    registrationLink.click();
+
+contestant0.sendKeys('Ajna');
+contestant1.sendKeys('Lewis');
+contestant2.sendKeys('Orsega');
+contestant3.sendKeys('Alex');
+contestant4.sendKeys('Li');
+
+registerButton.click();
+    
+    expect(registerMessage.getText()).toEqual('Should be 2, 4, or 8 contestants');
+    
+        
+   });
+
+it('cannot register 7 contestants', function() {
+    page.navigateTo();
+    browser.get('/');
+    registrationLink.click();
+
+contestant0.sendKeys('Ajna');
+contestant1.sendKeys('Lewis');
+contestant2.sendKeys('Orsega');
+contestant3.sendKeys('Alex');
+contestant4.sendKeys('Li');
+contestant5.sendKeys('Yang');
+contestant6.sendKeys('Yorder');
+
+registerButton.click();
+    
+    expect(registerMessage.getText()).toEqual('Should be 2, 4, or 8 contestants');
+    
+        
+   });
+
+it('cannot register 6 contestants', function() {
+    page.navigateTo();
+    browser.get('/');
+    registrationLink.click();
+
+contestant0.sendKeys('Ajna');
+contestant1.sendKeys('Lewis');
+contestant2.sendKeys('Orsega');
+contestant3.sendKeys('Alex');
+contestant4.sendKeys('Li');
+contestant5.sendKeys('Yang');
+
+registerButton.click();
+    
+    expect(registerMessage.getText()).toEqual('Should be 2, 4, or 8 contestants');
+    
+        
+   });
 
 
 });
