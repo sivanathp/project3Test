@@ -7,6 +7,17 @@ describe('workspace-project App', () => {
   var subpageTitle = element(by.id('subpageTitle'));
   var registrationLink =  element(by.id('registration-navbar'));
   var bracketsLink =  element(by.id('brackets-navbar'));
+  var contestant0 = element(by.id('contestant0'));
+  var contestant1 = element(by.id('contestant1'));
+  var contestant2 = element(by.id('contestant2'));
+  var contestant3 = element(by.id('contestant3'));
+  var contestant4 = element(by.id('contestant4'));
+  var contestant5 = element(by.id('contestant5'));
+  var contestant6 = element(by.id('contestant6'));
+  var contestant7 = element(by.id('contestant7'));
+  var registerButton = element(by.id('registerbtn'));
+  var registerMessage = element(by.id('registermessage'));
+
 
   beforeEach(() => {
     page = new AppPage();
@@ -45,6 +56,9 @@ describe('workspace-project App', () => {
     });
   }
 
+  
+
+
   it('should go to Registration page', function() {
     page.navigateTo();
     browser.get('/');
@@ -64,5 +78,59 @@ describe('workspace-project App', () => {
     
         
    });
+
+   it('should register 2 contestants', function() {
+    page.navigateTo();
+    browser.get('/');
+    registrationLink.click();
+
+contestant0.sendKeys('Ajna');
+contestant1.sendKeys('Lewis');
+registerButton.click();
+    
+    expect(registerMessage.getText()).toEqual('Ajna,Lewis');
+    
+        
+   });
+
+it('should register 4 contestants', function() {
+    page.navigateTo();
+    browser.get('/');
+    registrationLink.click();
+
+contestant0.sendKeys('Ajna');
+contestant1.sendKeys('Lewis');
+contestant2.sendKeys('Orsega');
+contestant3.sendKeys('Alex');
+registerButton.click();
+    
+    expect(registerMessage.getText()).toEqual('Ajna,Lewis,Orsega,Alex');
+    
+        
+   });
+
+it('should register 8 contestants', function() {
+    page.navigateTo();
+    browser.get('/');
+    registrationLink.click();
+
+contestant0.sendKeys('Ajna');
+contestant1.sendKeys('Lewis');
+contestant2.sendKeys('Orsega');
+contestant3.sendKeys('Alex');
+contestant4.sendKeys('Li');
+contestant5.sendKeys('Yang');
+contestant6.sendKeys('Yorder');
+contestant7.sendKeys('Kyle');
+registerButton.click();
+    
+    expect(registerMessage.getText()).toEqual('Ajna,Lewis,Orsega,Alex,Li,Yang,Yorder,Kyle');
+    
+        
+   });
+
+
+
+
 
 });
