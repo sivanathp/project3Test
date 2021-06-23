@@ -17,6 +17,10 @@ describe('workspace-project App', () => {
   var contestant7 = element(by.id('contestant7'));
   var registerButton = element(by.id('registerbtn'));
   var registerMessage = element(by.id('registermessage'));
+  var autofilltwoButton = element(by.id('autofilltwo'));
+  var autofillfourButton = element(by.id('autofillfour'));
+  var autofilleightButton = element(by.id('autofilleight'));
+
 
 
   beforeEach(() => {
@@ -202,5 +206,42 @@ registerButton.click();
         
    });
 
+it('should autofill 2 contestants', function() {
+    page.navigateTo();
+    browser.get('/');
+    registrationLink.click();
+    autofilltwoButton.click();
+    
+registerButton.click();
+    
+    expect(registerMessage.getText()).toEqual('Zoe,Kaylee');
+    
+        
+   });
 
+it('should autofill 4 contestants', function() {
+    page.navigateTo();
+    browser.get('/');
+    registrationLink.click();
+    autofillfourButton.click();
+    
+registerButton.click();
+    
+    expect(registerMessage.getText()).toEqual('John,Paul,George,Ringo');
+    
+        
+   });
+
+it('should autofill 8 contestants', function() {
+    page.navigateTo();
+    browser.get('/');
+    registrationLink.click();
+    autofilleightButton.click();
+    
+registerButton.click();
+    
+    expect(registerMessage.getText()).toEqual('Leia,Luke,Lando,Han,Chewy,R2D2,C3P0,Vader');
+    
+        
+   });
 });
